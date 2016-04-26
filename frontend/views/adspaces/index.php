@@ -25,12 +25,19 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'ownedApp_id',
+            [
+                'attribute'=>'owner_id',
+                'label'=>'Application',
+                'format'=>'text',
+                'content'=>function($data){
+                    return $data->getAppName();
+                },
+            ],
             'type',
             'width',
             'hight',
-            // 'refreshTime',
-            // 'clickType',
+             'refreshTime',
+             'clickType',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

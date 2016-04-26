@@ -58,6 +58,13 @@ class Adspaces extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Applications::className(), ['id' => 'ownedApp_id']);
     }
+
+    public function getAppName()
+    {
+        $application = $this->ownedApp;
+//\yii\helpers\VarDumper::dump($application); die();
+        return $application ? $application->appName : '';
+    }
     /**
      * @inheritdoc
      * @return AdspacesQuery the active query used by this AR class.

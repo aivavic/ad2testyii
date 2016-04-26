@@ -25,16 +25,15 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
             'platform',
             'appName',
-//            'id',
-//            'app_key',
+
             [
                 'attribute'=>'owner_id',
                 'label'=>'User',
-                'format'=>'text', // Возможные варианты: raw, html
+                'format'=>'text',
                 'content'=>function($data){
                     return $data->getOwnerName();
                 },
-//                'filter' => Category::getParentsList()
+
             ],
 
 
