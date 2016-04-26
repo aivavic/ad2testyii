@@ -91,12 +91,16 @@ class AdspacesController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $applications = Applications::find()->all();
 
+
+        $items = ArrayHelper::map($applications,'id','appName');
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'applications' => $items
             ]);
         }
     }
